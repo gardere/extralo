@@ -56,8 +56,18 @@ ETLobject.prototype.run = function() {
         this.inputs = [this.inputs];
     }
 
+    var start;
     return this.getInputPromises().
-    then(_.bind(this.execute, this));
+    then(_.bind(function (promises) {
+        console.log(this.getName() + ' starting');
+        start = _.now();
+        return promises;
+    }, this)).
+    then(_.bind(this.execute, this)).
+    then(_.bind(function (result) {
+        console.log(this.getName() + ' - ' + (_.now() - start) + 'ms');
+        return result;
+    }, this));
 };
 
 ETLobject.prototype.getRequiredParams = function() {

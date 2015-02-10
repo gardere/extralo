@@ -22,7 +22,7 @@ FilterETLOperation.prototype.getRequiredParams = function() {
         accepted_types: ['string']
     }, {
         name: 'filterValue',
-        accepted_types: ['string', 
+        accepted_types: ['string', 'object', 
         'number']
     }];
 };
@@ -77,6 +77,11 @@ FilterETLOperation.prototype.execute = function(inputs) {
         case 'greater or equal': 
             comparisonMethod = function (a, b) {
                 return a >= b;
+            }
+            break;
+        case 'in':
+            comparisonMethod = function (a, b) {
+                return b.indexOf(a) > -1;
             }
             break;
         default: 
