@@ -1,0 +1,23 @@
+{
+  "name": "ExTraLo",
+  "version": "1.0.0",
+  "description": "ETL components for NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:lesbandits/extralo.js.git"
+  },
+  "keywords": [
+    "ETL"
+  ],
+  "author": "Mathieu Gardere",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.1.0",
+    "mysql": "^2.5.4",
+    "q": "^1.1.2"
+  }
+}
